@@ -55,12 +55,21 @@ export default class Cart extends Component {
         }
         </ol>
         </div>
-        <button onClick={this.handleShowDiscount} style={{padding: "15px"}}>
-          Ask for Discount
-        </button>
-        <button onClick={this.handleCheckout} style={(this.props.items.length > 0)?this.styles.e:this.styles.d} disabled={!this.props.items.length}>
-          Check out
-        </button>
+        <div>
+          {
+            (this.state.discount) ? <h4>{`Applied ${this.state.discount} discount`}</h4> : ''
+          }
+        </div>
+        <div>
+          <button onClick={this.handleShowDiscount} style={{padding: "15px"}}>
+            Ask for Discount
+          </button>
+        </div>
+        <div>
+          <button onClick={this.handleCheckout} style={(this.props.items.length > 0)?this.styles.e:this.styles.d} disabled={!this.props.items.length}>
+            Check out
+          </button>
+        </div>
       </div>
     )
   }
